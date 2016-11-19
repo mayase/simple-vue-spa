@@ -1,0 +1,38 @@
+[class^=page-]{
+  padding: 1rem 0;
+  width: 400px;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.page__header{
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+.page__text-highlighted{
+  color: #105414;
+}
+
+.mixin-control{
+  font: inherit;
+  color: #2E7D32;
+  padding: 1rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  -webkit-appearance: none;
+  text-align: center;
+  background-color: white;
+  height: 55px;
+  box-sizing: border-box;
+}
+
+.page__button{
+  .mixin-control;
+  text-transform: uppercase;
+}
+input[type="text"]{
+  .mixin-control;
+}
