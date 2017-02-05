@@ -2,9 +2,8 @@ let HtmlWebpackPlugin = require('html-webpack-plugin'),
     webpack = require('webpack'),
 
     pathSource  = __dirname + '/source',
-    pathBuild   = __dirname + '/build',
-    pathDev     = `${pathBuild}/dev`,
-    pathDist    = `${pathBuild}/dist`;
+    pathDev   = __dirname + '/dev',
+    pathBuild   = __dirname + '/build';
 
 /**
  * Plugins
@@ -17,6 +16,11 @@ let plugins = {
     uglify: new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: false
+        }
+    }),
+    production: new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify('production')
         }
     }),
     occurrenceOptimize: new webpack.optimize.OccurenceOrderPlugin()
@@ -62,13 +66,14 @@ let commonConfig = {
 let productionConfig = {
     output: {
         filename: 'app.js',
-        path: pathDist
+        path: pathBuild
     },
 
     plugins: [
         plugins.copyHTML,
         plugins.uglify,
-        plugins.occurrenceOptimize
+        plugins.occurrenceOptimize,
+        plugins.production
     ]
 };
 

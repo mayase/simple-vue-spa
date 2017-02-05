@@ -1,3 +1,5 @@
 node_modules
 .idea
-build/dev
+yarn.lock
+.DS_Store
+npm-debug.log
